@@ -10,15 +10,12 @@ class Pokemon
   end
   
   def self.save(name, type, db)
-    new = Pokemon.new
-    sql = <<-SQL
-      INSERT INTO songs (name, type, db)
-      VALUES (?, ?, ?)
-    SQL
- 
-    DB[:conn].execute(sql, new.name, new.type, new.db)
-    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM pokemon ")[0][0]
+    db.execute(
+      "INSERT INTO pokemon (name, type) VALUES (?, ?)",
+      name, 
+      type)
   end
+ 
   
   def self.find 
     
