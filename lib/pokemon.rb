@@ -19,10 +19,10 @@ class Pokemon
   end
  
   
-  def self.find(id, db)
-    db.execute("SELECT * FROM pokemon WHERE id = (?)", id).each do |row|
+  def self.find(i_d, data_base)
+    data_base.execute("SELECT * FROM pokemon WHERE id = (?)", i_d).each do |row|
       #binding.pry
-      pokemon = Pokemon.new(id = row[0], name = row[1], type = row[2])
+      pokemon = Pokemon.new(id = row[0], name = row[1], type = row[2], db = data_base)
       pokemon
     end
   end
