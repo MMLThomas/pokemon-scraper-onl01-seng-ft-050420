@@ -19,9 +19,7 @@ class Pokemon
   
   def self.find(id, db)
     db.execute("SELECT * FROM pokemon WHERE id = (?)", id).each do |row|
-      pokemon = Pokemon.new
-      pokemon.name = row[0]
-      pokemon.type = row[1]
+      pokemon = Pokemon.new(row[0], row[2], row[3, row[3]])
       pokemon
     end
   end
