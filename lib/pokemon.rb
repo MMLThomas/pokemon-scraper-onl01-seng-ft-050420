@@ -22,7 +22,7 @@ class Pokemon
   def self.find(id, db)
     db.execute("SELECT * FROM pokemon WHERE id = (?)", id).each do |row|
       #binding.pry
-      pokemon = Pokemon.new(id: = row[0], name: row[1], type: = row[2])
+      pokemon = Pokemon.new(id = row[0], name row[1], type = row[2])
       pokemon
     end
   end
